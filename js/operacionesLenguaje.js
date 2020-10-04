@@ -6,12 +6,24 @@ $(function () {
 function PotenciaLenguaje() {
   $("#btnEjecutarL").click(function (e) {
     e.preventDefault();
-    let lenguaje1 = $("#inputLenguaje1").val().split(",");
-    let potencia = $("#inputLenguaje2").val();
-    let potenciaF = $("#inputLenguaje1").val().split(",");
     let operacion = $("#selectOperacionLenguaje").val();
-    let tam = lenguaje1.length;
     if (operacion === "6") {
+      let re = /^([\w]+(,|))+[^,]$/;
+      let re2 = /^[\d]+$/;
+      var match = re.test($("#inputLenguaje1").val());
+      var match2 = re2.test($("#inputLenguaje2").val());
+      console.log(match, match2);
+      if (!match || !match2) {
+        alert("Entrada Invalida para la potencia ");
+        return;
+      }
+
+      let lenguaje1 = $("#inputLenguaje1").val().split(",");
+      let potencia = $("#inputLenguaje2").val();
+      let potenciaF = $("#inputLenguaje1").val().split(",");
+
+      let tam = lenguaje1.length;
+
       if (potencia !== "" && $("#inputLenguaje1").val() !== "") {
         if (potencia === 0) {
           alert("vacio");
@@ -36,9 +48,18 @@ function PotenciaLenguaje() {
 function OperacionesLenguajeBasicas() {
   $("#btnEjecutarL").click(function (event) {
     event.preventDefault();
+
+    let operacion = $("#selectOperacionLenguaje").val();
+    let re = /^([\w]+(,|))+[^,]$/;
+    var match = re.test($("#inputLenguaje1").val());
+    var match2 = re.test($("#inputLenguaje2").val());
+    console.log(match, match2);
+    if ((!match || !match2) && operacion !== "6") {
+      alert("Entrada Invalida");
+      return;
+    }
     let lenguaje1 = $("#inputLenguaje1").val().split(",");
     let lenguaje2 = $("#inputLenguaje2").val().split(",");
-    let operacion = $("#selectOperacionLenguaje").val();
 
     if (lenguaje1.length !== 0) {
       if (operacion === "1" && lenguaje2.length !== 0) {
@@ -66,7 +87,7 @@ function OperacionesLenguajeBasicas() {
       } else if (operacion === "8") {
         cardinalidad = lenguaje1.length;
         alert(cardinalidad);
-      } else {
+      } else if (operacion !== "6") {
         alert("Escoja una operacion");
         return;
       }

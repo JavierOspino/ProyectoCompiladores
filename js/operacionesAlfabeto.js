@@ -1,5 +1,14 @@
 $("#btnEjecutar").click(function (event) {
   event.preventDefault();
+
+  let re = /^([\w]+(,|))+[^,]$/;
+  var match = re.test($("#inputAlfabeto1").val());
+  var match2 = re.test($("#inputAlfabeto2").val());
+  console.log(match, match2);
+  if (!match || !match2) {
+    alert("Entrada Invalida");
+    return;
+  }
   var alfabeto1 = $("#inputAlfabeto1").val().split(",");
   var alfabeto2 = $("#inputAlfabeto2").val().split(",");
   var operacion = $("#selectOperacion").val();

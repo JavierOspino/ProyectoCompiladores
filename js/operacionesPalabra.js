@@ -5,6 +5,15 @@ $(function () {
 function OperacionesBasicas() {
   $("#btnEjecutarP").click(function (event) {
     event.preventDefault();
+
+    let re = /^[\w]+$/;
+    var match = re.test($("#inputPalabra").val());
+    console.log(match);
+    if (!match) {
+      alert("Entrada Invalida ");
+      return;
+    }
+
     let palabra = $("#inputPalabra").val();
     let operacion = $("#selectPalabraOperacion").val();
 
