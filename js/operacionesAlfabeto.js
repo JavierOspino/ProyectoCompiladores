@@ -1,7 +1,7 @@
 $("#btnEjecutar").click(function (event) {
   event.preventDefault();
 
-  let re = /^([\w]+(,|))+[^,]$/;
+  let re = /^( ([\w]+(,|)^.)+[^,] ) |([\w]{1})$/;
   var match = re.test($("#inputAlfabeto1").val());
   var match2 = re.test($("#inputAlfabeto2").val());
   console.log(match, match2);

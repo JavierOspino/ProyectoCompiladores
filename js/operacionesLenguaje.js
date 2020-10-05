@@ -8,9 +8,9 @@ function PotenciaLenguaje() {
     e.preventDefault();
     let operacion = $("#selectOperacionLenguaje").val();
     if (operacion === "6") {
-      let re = /^([\w]+(,|))+[^,]$/;
+      let re = /^( ([\w]+(,|)^.)+[^,] ) |([\w]{1})$/;
       let re2 = /^[\d]+$/;
-      var match = re.test($("#inputLenguaje1").val());
+      var match = re.test($("#inputLenguaje1").val().strim());
       var match2 = re2.test($("#inputLenguaje2").val());
       console.log(match, match2);
       if (!match || !match2) {
@@ -50,7 +50,8 @@ function OperacionesLenguajeBasicas() {
     event.preventDefault();
 
     let operacion = $("#selectOperacionLenguaje").val();
-    let re = /^([\w]+(,|))+[^,]$/;
+    let re = /^( ([\w]+(,|)^.)+[^,] ) |([\w]{1})$/;
+    /^([\w]+(,|))+[^,]$/;
     var match = re.test($("#inputLenguaje1").val());
     var match2 = re.test($("#inputLenguaje2").val());
     console.log(match, match2);
