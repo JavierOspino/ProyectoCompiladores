@@ -10,7 +10,7 @@ function PotenciaLenguaje() {
     if (operacion === "6") {
       let re = /^( ([\w]+(,|)^.)+[^,] ) |([\w]{1})$/;
       let re2 = /^[\d]+$/;
-      var match = re.test($("#inputLenguaje1").val().strim());
+      var match = re.test($("#inputLenguaje1").val());
       var match2 = re2.test($("#inputLenguaje2").val());
       console.log(match, match2);
       if (!match || !match2) {
@@ -19,7 +19,7 @@ function PotenciaLenguaje() {
       }
 
       let lenguaje1 = $("#inputLenguaje1").val().split(",");
-      let potencia = $("#inputLenguaje2").val();
+      let potencia = parseInt($("#inputLenguaje2").val());
       let potenciaF = $("#inputLenguaje1").val().split(",");
 
       let tam = lenguaje1.length;
